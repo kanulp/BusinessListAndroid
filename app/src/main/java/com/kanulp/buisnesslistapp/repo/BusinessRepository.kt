@@ -11,7 +11,7 @@ class BusinessRepository {
 
     private val apiService = RetrofitManager.apiService
 
-    val businessSearchSuccessLiveData : MutableLiveData<MutableLiveData<BusinessSearchModel>> = MutableLiveData()
+    val businessSearchSuccessLiveData : MutableLiveData<BusinessSearchModel> = MutableLiveData()
     val businessSearchFailLiveData : MutableLiveData<Boolean> = MutableLiveData()
 
     /*
@@ -20,13 +20,12 @@ class BusinessRepository {
     suspend fun getBusiness(text:String,lat:String,long:String) {
 
         try {
+            Log.d(TAG,"getbusiness : $text $lat $long")
             val response = apiService.getBusinesses(text,lat,long)
 
-            Log.d(TAG, "$response")
 
             if (response.isSuccessful) {
                 Log.d(TAG, "SUCCESS")
-                //Log.d(TAG, "${response.body()}")
                 businessSearchSuccessLiveData.postValue(response.body())
 
             } else {

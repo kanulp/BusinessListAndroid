@@ -10,6 +10,8 @@
         android:layout_width="match_parent"
         android:id="@+id/auto_complete_text"
         android:layout_height="wrap_content"
+        android:hint="Search Business"
+
         app:layout_constraintBottom_toTopOf="@+id/tv_data"
         app:layout_constraintTop_toTopOf="parent" />
 
